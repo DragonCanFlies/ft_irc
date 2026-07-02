@@ -1,0 +1,607 @@
+<< CAP LS
+<< PASS pass
+<< NICK vboxuser
+<< USER vboxuser vboxuser 127.0.0.1 :vboxuser
+>> :ircserv 421 * CAP :Unknown command
+>> :ircserv 433 * vboxuser :Nickname is already in use
+<< NICK vboxuser_
+>> :ircserv 001 vboxuser_ :Welcome to ft_irc
+<< MODE vboxuser_ +i
+<< WHOIS vboxuser
+>> :ircserv 403 vboxuser_ vboxuser_ :No such channel
+>> :ircserv 421 vboxuser_ WHOIS :Unknown command
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< JOIN #test
+>> :vboxuser_!vboxuser@localhost JOIN :#test
+>> :ircserv 353 vboxuser_ = #test :@alpha beta vboxuser vboxuser_
+>> :ircserv 366 vboxuser_ #test :End of /NAMES list
+<< MODE #test
+>> :ircserv 324 vboxuser_ #test +
+--> chanquery mode
+<< WHO #test
+>> :ircserv 421 vboxuser_ WHO :Unknown command
+<< JOIN #test2
+>> :vboxuser_!vboxuser@localhost JOIN :#test2
+>> :ircserv 353 vboxuser_ = #test2 :beta @vboxuser vboxuser_
+>> :ircserv 366 vboxuser_ #test2 :End of /NAMES list
+<< PRIVMSG #test2 :hi
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> FAILED whois
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> FAILED who: chanquery abort
+<< MODE #test2
+--> lag pong
+>> :ircserv 324 vboxuser_ #test2 +
+--> chanquery mode
+<< WHO #test2
+>> :ircserv 421 vboxuser_ WHO :Unknown command
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> FAILED who: chanquery abort
+<< WHO #test
+--> lag pong
+>> :ircserv 421 vboxuser_ WHO :Unknown command
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> FAILED who: chanquery abort
+<< MODE #test b
+--> lag pong
+>> :ircserv 482 vboxuser_ #test :You're not channel operator
+<< PRIVMSG #test2 :feznfez
+<< PRIVMSG #test2 :fzfezf
+<< JOIN #banana
+>> :vboxuser_!vboxuser@localhost JOIN :#banana
+>> :ircserv 353 vboxuser_ = #banana :@vboxuser_
+>> :ircserv 366 vboxuser_ #banana :End of /NAMES list
+<< JOIN #omom
+>> :vboxuser_!vboxuser@localhost JOIN :#omom
+>> :ircserv 353 vboxuser_ = #omom :@vboxuser_
+>> :ircserv 366 vboxuser_ #omom :End of /NAMES list
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> FAILED mode b: chanquery abort
+<< MODE #banana
+--> lag pong
+>> :ircserv 324 vboxuser_ #banana +
+--> chanquery mode
+<< MODE #omom
+>> :ircserv 324 vboxuser_ #omom +
+--> chanquery mode
+<< WHO #banana
+>> :ircserv 421 vboxuser_ WHO :Unknown command
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> FAILED who: chanquery abort
+<< WHO #omom
+--> lag pong
+>> :ircserv 421 vboxuser_ WHO :Unknown command
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> FAILED who: chanquery abort
+<< MODE #test2 b
+--> lag pong
+>> :ircserv 482 vboxuser_ #test2 :You're not channel operator
+<< CAP LS
+<< PASS pass
+<< NICK vboxuser
+<< USER vboxuser vboxuser 127.0.0.1 :vboxuser
+>> :ircserv 421 * CAP :Unknown command
+>> :ircserv 433 * vboxuser :Nickname is already in use
+<< NICK vboxuser_
+>> :ircserv 001 vboxuser_ :Welcome to ft_irc
+<< MODE vboxuser_ +i
+<< WHOIS vboxuser
+>> :ircserv 403 vboxuser_ vboxuser_ :No such channel
+>> :ircserv 421 vboxuser_ WHOIS :Unknown command
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< JOIN #test
+>> :vboxuser_!vboxuser@localhost JOIN :#test
+>> :ircserv 353 vboxuser_ = #test :@alpha beta vboxuser vboxuser_
+>> :ircserv 366 vboxuser_ #test :End of /NAMES list
+<< MODE #test
+>> :ircserv 324 vboxuser_ #test +
+--> chanquery mode
+<< WHO #test
+>> :ircserv 421 vboxuser_ WHO :Unknown command
+<< JOIN #test2
+>> :vboxuser_!vboxuser@localhost JOIN :#test2
+>> :ircserv 353 vboxuser_ = #test2 :beta @vboxuser vboxuser_
+>> :ircserv 366 vboxuser_ #test2 :End of /NAMES list
+<< PRIVMSG #test2 :hi
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> FAILED whois
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> FAILED who: chanquery abort
+<< MODE #test2
+--> lag pong
+>> :ircserv 324 vboxuser_ #test2 +
+--> chanquery mode
+<< WHO #test2
+>> :ircserv 421 vboxuser_ WHO :Unknown command
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> FAILED who: chanquery abort
+<< WHO #test
+--> lag pong
+>> :ircserv 421 vboxuser_ WHO :Unknown command
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> FAILED who: chanquery abort
+<< MODE #test b
+--> lag pong
+>> :ircserv 482 vboxuser_ #test :You're not channel operator
+<< PRIVMSG #test2 :feznfez
+<< PRIVMSG #test2 :fzfezf
+<< JOIN #banana
+>> :vboxuser_!vboxuser@localhost JOIN :#banana
+>> :ircserv 353 vboxuser_ = #banana :@vboxuser_
+>> :ircserv 366 vboxuser_ #banana :End of /NAMES list
+<< JOIN #omom
+>> :vboxuser_!vboxuser@localhost JOIN :#omom
+>> :ircserv 353 vboxuser_ = #omom :@vboxuser_
+>> :ircserv 366 vboxuser_ #omom :End of /NAMES list
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> FAILED mode b: chanquery abort
+<< MODE #banana
+--> lag pong
+>> :ircserv 324 vboxuser_ #banana +
+--> chanquery mode
+<< MODE #omom
+>> :ircserv 324 vboxuser_ #omom +
+--> chanquery mode
+<< WHO #banana
+>> :ircserv 421 vboxuser_ WHO :Unknown command
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> FAILED who: chanquery abort
+<< WHO #omom
+--> lag pong
+>> :ircserv 421 vboxuser_ WHO :Unknown command
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> FAILED who: chanquery abort
+<< MODE #test2 b
+--> lag pong
+>> :ircserv 482 vboxuser_ #test2 :You're not channel operator
+<< JOIN #bli
+>> :vboxuser_!vboxuser@localhost JOIN :#bli
+>> :ircserv 353 vboxuser_ = #bli :@vboxuser_
+>> :ircserv 366 vboxuser_ #bli :End of /NAMES list
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> FAILED mode b: chanquery abort
+<< MODE #bli
+--> lag pong
+>> :ircserv 324 vboxuser_ #bli +
+--> chanquery mode
+<< WHO #bli
+>> :ircserv 421 vboxuser_ WHO :Unknown command
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> FAILED who: chanquery abort
+<< MODE #banana b
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> FAILED mode b: chanquery abort
+<< MODE #omom b
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> FAILED mode b: chanquery abort
+<< MODE #test b
+--> lag pong
+>> :ircserv 482 vboxuser_ #test :You're not channel operator
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> FAILED mode b: chanquery abort
+<< MODE #bli b
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> FAILED mode b: chanquery abort
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
+<< PING ircserv
+>> :ircserv PONG ircserv :ircserv
+--> lag pong
