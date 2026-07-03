@@ -99,10 +99,7 @@ void Server::run() {
             short re = _polls[i].revents;
             if (re == 0) continue;
             if (re & (POLLERR | POLLHUP | POLLNVAL)) {
-                if (fd != _serverFd) { removeClient(fd, "connection lost"); i = 0; } // i is 1 next loop, i-- ?
-                // else if (fd == _serverFd) {
-                //     throw std::runtime_error("server socket error");
-                // }
+                if (fd != _serverFd) { removeClient(fd, "connection lost"); i = 0; }
                 continue;
             }
             if (fd == _serverFd && (re & POLLIN)) acceptClient();
@@ -127,9 +124,9 @@ void Server::acceptClient() {
         int fd = accept(_serverFd, (sockaddr *)&addr, &len);
         if (fd < 0) {
             if (errno == EAGAIN || errno == EWOULDBLOCK) return;
-            return; // log some stuff
+            return;
         }
-        fcntl(fd, F_SETFL, O_NONBLOCK); // check system call failure
+        fcntl(fd, F_SETFL, O_NONBLOCK);
         _clients[fd] = new Client(fd);
         addPollFd(fd, POLLIN);
         std::cout << "client connected fd=" << fd << std::endl;
@@ -300,6 +297,9 @@ void Server::removeFromAllChannels(int fd, const std::string &reason) {
     for (size_t i = 0; i < emptyChannels.size(); ++i) _channels.erase(emptyChannels[i]);
 }
 
+/*
+** Removes a client
+*/
 void Server::removeClient(int fd, const std::string &reason) {
     std::map<int, Client *>::iterator it = _clients.find(fd);
     if (it == _clients.end()) return;
@@ -439,6 +439,9 @@ void Server::cmdQuit(Client &client, const std::vector<std::string> &args) {
     client.closeClient();
 }
 
+/*
+** Handles the KICK command
+*/
 void Server::cmdKick(Client &client, const std::vector<std::string> &args) {
     if (!client.isRegistered()) { numeric(client, 451, ":You have not registered"); return; }
     if (args.size() < 3) { numeric(client, 461, "KICK :Not enough parameters"); return; }
@@ -477,6 +480,9 @@ void Server::cmdInvite(Client &client, const std::vector<std::string> &args) {
     reply(*target, ":" + client.prefix() + " INVITE " + args[1] + " :" + chName);
 }
 
+/*
+** Handles the TOPIC command
+*/
 void Server::cmdTopic(Client &client, const std::vector<std::string> &args) {
     if (!client.isRegistered()) { numeric(client, 451, ":You have not registered"); return; }
     if (args.size() < 2) { numeric(client, 461, "TOPIC :Not enough parameters"); return; }
@@ -496,6 +502,9 @@ void Server::cmdTopic(Client &client, const std::vector<std::string> &args) {
     broadcast(ch, msg, client.getFd());
 }
 
+/*
+** Handles the MODE command
+*/
 void Server::cmdMode(Client &client, const std::vector<std::string> &args) {
     if (!client.isRegistered()) { numeric(client, 451, ":You have not registered"); return; }
     if (args.size() < 2) { numeric(client, 461, "MODE :Not enough parameters"); return; }

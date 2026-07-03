@@ -16,7 +16,6 @@ static bool validPort(const char *s, int &port) {
     return port > 0 && port <= 65535;
 }
 
-volatile sig_atomic_t g_running = 1;
 void signalHandler(int sig) {
     (void) sig;
     g_running = 0;

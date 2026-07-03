@@ -8,7 +8,8 @@ SRC = src/main.cpp \
       src/Server.cpp \
       src/Client.cpp \
       src/Channel.cpp \
-      src/Utils.cpp
+      src/Utils.cpp \
+	  src/signal.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

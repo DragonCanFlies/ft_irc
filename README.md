@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by ltoscani and asalniko.*
+*This project has been created as part of the 42 curriculum by ltoscani and latabagl.*
 
 ## Description
 
